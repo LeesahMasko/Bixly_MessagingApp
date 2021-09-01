@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ComposeMessage from '../buttons/ComposeMessage';
-import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
-import InboxRoundedIcon from '@material-ui/icons/InboxRounded';
-import SlideshowRoundedIcon from '@material-ui/icons/SlideshowRounded'; //sent
-import DeleteSweepRoundedIcon from '@material-ui/icons/DeleteSweepRounded'; //deleted messages
+import { buttonIcons } from '../../components/data/ButtonIcons';
 function Sidebar() {
     return (
         <Wrapper>
@@ -13,7 +10,12 @@ function Sidebar() {
             </ComposeMessageWrapper>
 
             <SideButtonsWrapper>
-<div>All the other stuff</div>
+                {
+                    buttonIcons.map(item => (
+                       <SidebarButtonItems>{item.icon} {item.text}</SidebarButtonItems>
+                    ))
+                }
+
             </SideButtonsWrapper>
         </Wrapper>
     )
@@ -22,10 +24,27 @@ function Sidebar() {
 export default Sidebar
 
 const Wrapper = styled.div`
-border-right: 1px solid #9da8a8;
 border-left: 2px solid #9da8a8;
-border-bottom: 2px solid #9da8a8`
+height:100vh`
 
-const ComposeMessageWrapper = styled.div``
-
+const ComposeMessageWrapper = styled.div`
+`
 const SideButtonsWrapper = styled.div``
+
+const SidebarButtonItems = styled.div`
+display: grid;
+grid-template-columns: 15% auto;
+color: #9da8a8;
+padding: 5px 20px;
+border-radius: 5px;
+
+:hover {
+    box-shadow: 0 3px 5px 0 #9da8a8;
+    color: #38703a;
+}
+
+`
+
+
+// padding: 5px;
+// margin:5px;
