@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: flex-end;
-border-bottom: 4px solid #9da8a8
+border-bottom: 2px solid #9da8a8
 `
 const CatLogoWrapper = styled.div`
 padding-left: 20px;`

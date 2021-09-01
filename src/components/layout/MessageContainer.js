@@ -13,6 +13,6 @@ function MessageContainer() {
 export default MessageContainer
 
 const Wrapper = styled.div`
-border-right: 2px solid #9da8a8;
-border-left: 1px solid #9da8a8;
-border-bottom: 2px solid #9da8a8`
+
+border-left: 1px solid #9da8a8;`
+
