@@ -1,9 +1,14 @@
 import './App.css';
+import Header from './components/layout/Header';
+import MessageContainer from './components/layout/MessageContainer';
+import SideBar from './components/layout/SideBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Getting started!</h1>
+      <Header />
+      <MessageContainer />
+      <SideBar />
     </div>
   );
 }
