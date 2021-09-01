@@ -15,7 +15,8 @@ function MainContainer() {
 export default MainContainer;
 
 const Wrapper = styled.div`
-backround-color: orange;`
+display: grid;
+grid-template-columns: 270px auto`
 
 
 
