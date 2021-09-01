@@ -8,7 +8,7 @@ function Header() {
     return (
         <Wrapper>
             <CatLogoWrapper>
-                <img src="/Cat.png" alt="Cat Chat logo, 2 cat outlines with text in between" width= "200" height="75"></img>
+                <img src="/Cat.png" alt="Cat Chat logo, 2 cat outlines with text in between" width= "150" height="55"></img>
             </CatLogoWrapper>
             <ProfileIconWrapper>
                 <MenuRoundedIcon />
@@ -28,6 +28,8 @@ justify-content: space-between;
 align-items: flex-end;
 border-bottom: 4px solid #9da8a8
 `
-const CatLogoWrapper = styled.div``
+const CatLogoWrapper = styled.div`
+padding-left: 20px;`
 
-const ProfileIconWrapper = styled.div ``
+const ProfileIconWrapper = styled.div `
+margin: 20px;`
