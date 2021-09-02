@@ -1,18 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { emailData } from '../data/temp/EmailData';
+import EachMessage from '../eachMessage/EachMessage';
+
+
+
+
 
 function MessageContainer() {
     return (
-        <Wrapper>
-        <div>Message Container</div>
-        </Wrapper>
+        <WrapperMessagesView>
+        {
+            emailData.map(({ sender, title, body, sent}) => (
+
+
+                        <EachMessage
+                        sender={sender}
+                        title={title}
+                        body={body}
+                        sent={sent}
+                        />
+
+            ))
+        }
+        </WrapperMessagesView>
     )
 }
 
 export default MessageContainer
 
-const Wrapper = styled.div`
+
+
+const WrapperMessagesView = styled.div`
 
 border-left: 1px solid #9da8a8;`
+
+
 
