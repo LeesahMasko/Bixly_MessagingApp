@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import CreateRoundedIcon from '@material-ui/icons/CreateRounded'; //Compose icon
-
+import ComposeMessageForm from '../layout/ComposeMessageForm';
 
 const ComposeMessage = () => {
     return (
-        <Wrapper>
+        <Wrapper onClick={() => }>
         <CreateRoundedIcon />
         <p>Compose</p>
         </Wrapper>

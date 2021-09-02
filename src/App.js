@@ -11,6 +11,8 @@ function App() {
       <MainContainer/>
 
     </div>
+
+    // <ComposeMessage />
   );
 }
 
