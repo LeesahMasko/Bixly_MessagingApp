@@ -6,27 +6,24 @@ import { useState } from 'react';
 
 function MainContainer() {
 
-    const [isRendering, setIsRendering] = useState();
+    //Possibly a first step to check for auth token. If so display default state (inbox)
 
-    function renderInbox() {
+    const [isRendering, setIsRendering] = useState(); //default state should be the inbox
 
-    }
 
     function renderSent() {
 
-    }
+    } // update state to have message container render sent messages
 
     function renderDeleted() {
 
-    }
+    } // update state to have message container render deleted messages
 
     function renderComposeForm() {
 
-    }
+    } // update state to have compose message form render
 
-    // const handleClick = () => {
-    //     setIsRendering();
-    // }
+
     return (
         <Wrapper>
             <SideBar />

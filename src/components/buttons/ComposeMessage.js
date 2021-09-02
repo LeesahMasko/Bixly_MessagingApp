@@ -5,7 +5,7 @@ import ComposeMessageForm from '../layout/ComposeMessageForm';
 
 const ComposeMessage = () => {
     return (
-        <Wrapper onClick={() => }>
+        <Wrapper>
         <CreateRoundedIcon />
         <p>Compose</p>
         </Wrapper>
