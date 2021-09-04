@@ -36,12 +36,10 @@ display: grid;
 grid-template-columns: 15% auto;
 color: #9da8a8;
 padding: 5px 20px;
-border-radius: 5px;
-margin: 5px;
 cursor: pointer;
 
 :hover {
-    box-shadow: 0 3px 5px 0 #9da8a8;
+    box-shadow: 0 0 3px 0 #9da8a8;
     color: #38703a;
 }
 

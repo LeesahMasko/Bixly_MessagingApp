@@ -42,6 +42,5 @@ div {
 :hover {
     box-shadow: 0 3px 5px 0 #9da8a8;
     color: #38703a;
-    background-color: #f2faf3
 }
 `
