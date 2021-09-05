@@ -40,7 +40,7 @@ div {
 }
 
 :hover {
-    box-shadow: 0 3px 5px 0 #9da8a8;
+    box-shadow: 0 3px 3px 0 #9da8a8;
     color: #38703a;
 }
 `

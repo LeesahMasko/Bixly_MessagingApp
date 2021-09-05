@@ -1,14 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
 import SideBar from './SideBar';
-import MessageContainer from './MessageContainer';
 import { useState } from 'react';
+import InboxContainer from './InboxContainer';
+import SentContainer from './SentContainer';
+import DeletedContainer from './DeletedContainer';
+import ComposeContainer from './ComposeContainer';
+
+function CurrentDisplay(props){
+
+    const { displayState } = props;
+
+    if (displayState === "inbox") {
+        return <InboxContainer />
+
+    }
+
+    if (displayState === "sent") {
+        return <SentContainer />
+
+    }
+
+    if (displayState === "deleted") {
+        return <DeletedContainer />
+
+    }
+
+    if (displayState === "compose") {
+        return <ComposeContainer />
+
+    }
+}
 
 function MainContainer() {
 
     //Possibly a first step to check for auth token. If so display default state (inbox)
 
-    const [isRendering, setIsRendering] = useState(); //default state should be the inbox
+    const [displayState, setDisplayState] = useState("sent"); //default state should be the inbox
 
 
     function renderSent() {
@@ -27,7 +55,7 @@ function MainContainer() {
     return (
         <Wrapper>
             <SideBar />
-            <MessageContainer />
+            <CurrentDisplay displayState={displayState} />
         </Wrapper>
     )
 }

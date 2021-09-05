@@ -8,9 +8,10 @@ import EachMessage from '../eachMessage/EachMessage';
 
 
 
-function MessageContainer() {
+function ComposeContainer() {
     return (
         <WrapperMessagesView>
+            <p>Compose Messages</p>
         {
             emailData.map(({ sender, title, body, sent}) => (
 
@@ -28,7 +29,7 @@ function MessageContainer() {
     )
 }
 
-export default MessageContainer
+export default ComposeContainer
 
 
 

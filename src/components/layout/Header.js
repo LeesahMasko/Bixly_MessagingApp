@@ -26,10 +26,11 @@ const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: flex-end;
-border-bottom: 2px solid #9da8a8
+border-bottom: 2px solid #9da8a8;
 `
 const CatLogoWrapper = styled.div`
-padding-left: 20px;`
+padding-left: 20px;
+`
 
 const ProfileIconWrapper = styled.div `
 margin: 20px;`

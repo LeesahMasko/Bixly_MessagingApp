@@ -28,6 +28,7 @@ border-left: 2px solid #9da8a8;
 height:100vh`
 
 const ComposeMessageWrapper = styled.div`
+border-top: 1px solid lightgray;
 `
 const SideButtonsWrapper = styled.div``
 
