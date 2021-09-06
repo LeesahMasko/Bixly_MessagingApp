@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { emailData } from '../data/temp/EmailData';
 import EachMessage from '../eachMessage/EachMessage';
+import ComposeMessageForm from './ComposeMessageForm';
 
 
 
@@ -11,20 +12,8 @@ import EachMessage from '../eachMessage/EachMessage';
 function ComposeContainer() {
     return (
         <WrapperMessagesView>
-            <p>Compose Messages</p>
-        {
-            emailData.map(({ sender, title, body, sent}) => (
-
-
-                        <EachMessage
-                        sender={sender}
-                        title={title}
-                        body={body}
-                        sent={sent}
-                        />
-
-            ))
-        }
+            <h3>Compose Message</h3>
+        <ComposeMessageForm />
         </WrapperMessagesView>
     )
 }

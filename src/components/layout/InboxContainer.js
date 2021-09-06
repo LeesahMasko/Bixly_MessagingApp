@@ -36,7 +36,7 @@ function InboxContainer() {
 
     return (
         <WrapperMessagesView>
-        <p>Inbox Messages</p>
+        <h3>Inbox Messages</h3>
 
         {
             inboxData.map(({ sender, title, body, sent}) => (

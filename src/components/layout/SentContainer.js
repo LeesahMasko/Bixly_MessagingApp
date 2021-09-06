@@ -30,7 +30,7 @@ function SentContainer() {
     }, []);
     return (
         <WrapperMessagesView>
-            <p>Sent Messages</p>
+            <h3>Sent Messages</h3>
         {
             sentData.map(({ sender, title, body, sent}) => (
 

@@ -32,7 +32,7 @@ export default Sidebar
 
 const Wrapper = styled.div`
 border-left: 2px solid #9da8a8;
-height:100vh`
+height:100% vh`
 
 const ComposeMessageWrapper = styled.div`
 border-top: 1px solid lightgray;
