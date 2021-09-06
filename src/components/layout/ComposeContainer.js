@@ -1,30 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { emailData } from '../data/temp/EmailData';
-import EachMessage from '../eachMessage/EachMessage';
-import ComposeMessageForm from './ComposeMessageForm';
-
-
-
-
+import { emailData } from "../data/temp/EmailData";
+import EachMessage from "../eachMessage/EachMessage";
+import ComposeMessageForm from "./ComposeMessageForm";
 
 function ComposeContainer() {
-    return (
-        <WrapperMessagesView>
-            <h3>Compose Message</h3>
-        <ComposeMessageForm />
-        </WrapperMessagesView>
-    )
+  return (
+    <WrapperMessagesView>
+      <h3>Compose Message</h3>
+      <ComposeMessageForm />
+    </WrapperMessagesView>
+  );
 }
 
-export default ComposeContainer
-
-
+export default ComposeContainer;
 
 const WrapperMessagesView = styled.div`
-
-border-left: 1px solid #9da8a8;`
-
-
-
+  border-left: 1px solid #9da8a8;
+`;

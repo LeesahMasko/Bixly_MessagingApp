@@ -1,13 +1,12 @@
-import './App.css';
-import Header from './components/layout/Header';
-import MainContainer from './components/layout/MainContainer';
+import "./App.css";
+import Header from "./components/layout/Header";
+import MainContainer from "./components/layout/MainContainer";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <MainContainer/>
-
+      <Header />
+      <MainContainer />
     </div>
 
     // <ComposeMessage />

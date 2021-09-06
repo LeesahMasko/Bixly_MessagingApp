@@ -1,21 +1,20 @@
-import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
-import SlideshowRoundedIcon from '@material-ui/icons/SlideshowRounded'; //sent
-import DeleteSweepRoundedIcon from '@material-ui/icons/DeleteSweepRounded'; //deleted items
+import MailOutlineRoundedIcon from "@material-ui/icons/MailOutlineRounded";
+import SlideshowRoundedIcon from "@material-ui/icons/SlideshowRounded"; //sent
+import DeleteSweepRoundedIcon from "@material-ui/icons/DeleteSweepRounded"; //deleted items
 
 export const buttonIcons = [
-    {
-        icon: <MailOutlineRoundedIcon />,
-        text: "Inbox"
-    },
+  {
+    icon: <MailOutlineRoundedIcon />,
+    text: "Inbox",
+  },
 
-    {
-        icon: <SlideshowRoundedIcon />,
-        text: "Sent Messages"
-    },
+  {
+    icon: <SlideshowRoundedIcon />,
+    text: "Sent Messages",
+  },
 
-    {
-        icon: <DeleteSweepRoundedIcon />,
-        text: "Deleted Messages"
-    },
-
-]
+  {
+    icon: <DeleteSweepRoundedIcon />,
+    text: "Deleted Messages",
+  },
+];
