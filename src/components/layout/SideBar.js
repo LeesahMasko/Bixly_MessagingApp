@@ -11,13 +11,14 @@ function Sidebar(props) {
     return (
         <Wrapper>
             <ComposeMessageWrapper>
-             <button onClick={renderComposeForm}><ComposeMessage /></button>
+             <div onClick={renderComposeForm}><ComposeMessage /></div>
             </ComposeMessageWrapper>
 
             <SideButtonsWrapper>
 
-                   <SidebarButtonItems>  <button onClick={renderInbox}><MailOutlineRoundedIcon/>Inbox </button></SidebarButtonItems>
-                   <SidebarButtonItems>  <button onClick={renderSent}><SlideshowRoundedIcon />Sent Messages</button></SidebarButtonItems>
+                   <div onClick={renderInbox}><SidebarButtonItems>  <MailOutlineRoundedIcon/>Inbox</SidebarButtonItems></div>
+
+                   <div onClick={renderSent}><SidebarButtonItems>  <SlideshowRoundedIcon />Sent Messages</SidebarButtonItems></div>
 
 
 
