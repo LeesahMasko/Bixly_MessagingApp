@@ -36,25 +36,28 @@ function MainContainer() {
 
     //Possibly a first step to check for auth token. If so display default state (inbox)
 
-    const [displayState, setDisplayState] = useState("sent"); //default state should be the inbox
+    const [displayState, setDisplayState] = useState("inbox"); //default state should be the inbox
 
 
     function renderSent() {
+        setDisplayState('sent')
 
     } // update state to have message container render sent messages
 
-    function renderDeleted() {
+    function renderInbox() {
+        setDisplayState('inbox')
 
     } // update state to have message container render deleted messages
 
     function renderComposeForm() {
+        setDisplayState('compose')
 
     } // update state to have compose message form render
 
 
     return (
         <Wrapper>
-            <SideBar />
+            <SideBar renderSent={renderSent} renderInbox={renderInbox} renderComposeForm={renderComposeForm}/>
             <CurrentDisplay displayState={displayState} />
         </Wrapper>
     )

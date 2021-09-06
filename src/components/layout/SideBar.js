@@ -1,20 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import ComposeMessage from '../buttons/ComposeMessage';
-import { buttonIcons } from '../../components/data/ButtonIcons';
-function Sidebar() {
+import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
+import SlideshowRoundedIcon from '@material-ui/icons/SlideshowRounded'; //sent
+
+function Sidebar(props) {
+
+    const {renderSent, renderInbox, renderComposeForm } = props;
+
     return (
         <Wrapper>
             <ComposeMessageWrapper>
-                <ComposeMessage />
+             <button onClick={renderComposeForm}><ComposeMessage /></button>
             </ComposeMessageWrapper>
 
             <SideButtonsWrapper>
-                {
-                    buttonIcons.map(item => (
-                       <SidebarButtonItems>{item.icon} {item.text}</SidebarButtonItems>
-                    ))
-                }
+
+                   <SidebarButtonItems>  <button onClick={renderInbox}><MailOutlineRoundedIcon/>Inbox </button></SidebarButtonItems>
+                   <SidebarButtonItems>  <button onClick={renderSent}><SlideshowRoundedIcon />Sent Messages</button></SidebarButtonItems>
+
+
+
 
             </SideButtonsWrapper>
         </Wrapper>
