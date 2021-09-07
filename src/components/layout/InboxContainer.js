@@ -84,5 +84,8 @@ const WrapperMessagesView = styled.div`
   }
 
   .deleteButton {
+      cursor: pointer;
+      color: #38703a;
+      background-color: light gray;
   }
 `;

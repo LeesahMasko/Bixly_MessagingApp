@@ -64,7 +64,7 @@ function SentContainer() {
 
     return (
         <WrapperMessagesView>
-            <h3>Sent Messages</h3> <button onClick={deleteSelectedMessages} className="deleteButton">Delete Selected Messages</button>
+            <h3 className="headerText">Sent Messages</h3> <button onClick={deleteSelectedMessages} className="deleteButton">Delete Selected Messages</button>
         {
             sentData.map(({ id, sender, title, body, sent}) => (
 
@@ -90,4 +90,13 @@ export default SentContainer;
 
 const WrapperMessagesView = styled.div`
     border-left: 1px solid #9da8a8;
-`
+    .headerText {
+        color: #38703a;
+    }
+
+        .deleteButton {
+            color: #38703a;
+            cursor: pointer;
+            background-color: light gray;
+    }
+`;
