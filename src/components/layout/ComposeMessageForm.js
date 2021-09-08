@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axios from "axios";
 
-function ComposeMessageForm() {
+function ComposeMessageForm(props) {
+  const { token } = props;
   const {
     register,
     handleSubmit,
@@ -18,8 +19,8 @@ function ComposeMessageForm() {
       url: "https://messaging-test.bixly.com/messages/",
       data,
       headers: {
-        authorization: "Token f44f08ea1919da2b02d3bc754f0b42cca40f1224",
-        "content-type": "application/json",
+        authorization: "Token " + token,
+            "content-type": "application/json",
       },
     })
       .then((res) => console.log(res))
