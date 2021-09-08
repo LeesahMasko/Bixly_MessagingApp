@@ -22,7 +22,7 @@ function SentContainer(props) {
         setSentData(response.data);
       })
       .catch(function (error) {
-        // display message error on screen
+
       })
 
       setRefresh(false);
@@ -60,7 +60,7 @@ function SentContainer(props) {
       setRefresh(true);
     })
      .catch(function (error) {
-        // display message error on screen
+
       })
   }
 

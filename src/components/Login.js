@@ -14,7 +14,7 @@ const formSchema = yup.object().shape({
 });
 
 function Login(props) {
-  // managing state for our form inputs
+  // managing state for the form inputs
 
   const { tokenAquired } = props;
 
@@ -70,7 +70,7 @@ function Login(props) {
         });
       })
       .catch(function (error) {
-        // display message error on screen
+
       })
   };
 

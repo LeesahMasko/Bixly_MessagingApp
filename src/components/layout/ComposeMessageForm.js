@@ -11,6 +11,8 @@ function ComposeMessageForm(props) {
     formState: { errors },
   } = useForm();
 
+
+
   const onSubmit = (data) => {
     console.log(data);
 
@@ -25,7 +27,7 @@ function ComposeMessageForm(props) {
     })
       .then((res) => console.log(res))
       .catch(function (error) {
-        // display message error on screen
+
       })
 
     console.log(errors);
@@ -35,23 +37,25 @@ function ComposeMessageForm(props) {
     <Wrapper>
       <WrapperComposeMessage>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
+
+          <input required
             className="input"
             type="text"
-            placeholder="To whom?"
+            placeholder="To whom? (required)"
             {...register("receiver", { required: true })}
           />
-          <textarea
+
+          <textarea required
             className="textareaSub"
             type="text"
-            placeholder="Subject?"
+            placeholder="Subject? (required)"
             {...register("title", { required: true, maxLength: 250 })}
           />
-          <textarea
+          <textarea required
             className="textareaBody"
             type="text"
-            placeholder="What's your message?"
-            {...register("body", { required: true })}
+            placeholder="What's your message? (required)"
+            {...register("body", { required: true, maxLength: 1000 })}
           />
 
           <button type="submit">Send Message</button>

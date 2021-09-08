@@ -48,6 +48,8 @@ function MainPortal() {
     </Wrapper>
   );
 }
+// Hello to anyone looking over this Bixly project :)
+//the following useLocalStorage function (lines 54-86) was copied from this article https://usehooks.com/useLocalStorage/
 
 function useLocalStorage(key, initialValue) {
   // State to store our value

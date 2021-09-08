@@ -21,8 +21,8 @@ function InboxContainer(props) {
       }).then(function (response) {
         setInboxData(response.data);
       })
-      .catch(function (error) {
-        // display message error on screen
+      .catch(function (error){
+
       })
       setRefresh(false);
     }
@@ -59,8 +59,8 @@ function InboxContainer(props) {
       setSelectedMessages([]);
       setRefresh(true);
     })
-    .catch(function (error) {
-        // display message error on screen
+    .catch(function (error){
+
       })
   }
 
