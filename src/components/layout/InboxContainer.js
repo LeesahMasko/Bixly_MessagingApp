@@ -3,27 +3,30 @@ import styled from "styled-components";
 import axios from "axios";
 import EachMessage from "../eachMessage/EachMessage";
 
-function InboxContainer() {
+function InboxContainer(props) {
+  const { token } = props;
   const [inboxData, setInboxData] = useState([]);
-
   const [selectedMessages, setSelectedMessages] = useState([]);
+  const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://messaging-test.bixly.com/messages/",
-      headers: {
-        authorization: "Token f44f08ea1919da2b02d3bc754f0b42cca40f1224",
-        "content-type": "application/json",
-      },
-    }).then(function (response) {
-      setInboxData(response.data);
-    });
-
-    // .catch(function (err) {
-
-    // })
-  }, []);
+    if (refresh) {
+      axios({
+        method: "get",
+        url: "https://messaging-test.bixly.com/messages/",
+        headers: {
+          authorization: "Token " + token,
+          "content-type": "application/json",
+        },
+      }).then(function (response) {
+        setInboxData(response.data);
+      })
+      .catch(function (error) {
+        // display message error on screen
+      })
+      setRefresh(false);
+    }
+  }, [refresh]);
 
   function messagesChecked(id) {
     if (selectedMessages.indexOf(id) === -1) {
@@ -40,18 +43,25 @@ function InboxContainer() {
   console.log(selectedMessages);
 
   function deleteSelectedMessages() {
-    selectedMessages.forEach((id) => {
-      axios({
-        method: "delete",
-        url: "https://messaging-test.bixly.com/messages/" + id,
-        headers: {
-          authorization: "Token f44f08ea1919da2b02d3bc754f0b42cca40f1224",
-          "content-type": "application/json",
-        },
-      });
-    });
-
-    setSelectedMessages([]);
+    //promise will wait for all deletes to finish, before refreshing
+    Promise.all(
+      selectedMessages.map((id) => {
+       return axios({
+          method: "delete",
+          url: "https://messaging-test.bixly.com/messages/" + id,
+          headers: {
+            authorization: "Token " + token,
+            "content-type": "application/json",
+          },
+        });
+      })
+    ).then(() => {
+      setSelectedMessages([]);
+      setRefresh(true);
+    })
+    .catch(function (error) {
+        // display message error on screen
+      })
   }
 
   return (
@@ -84,8 +94,8 @@ const WrapperMessagesView = styled.div`
   }
 
   .deleteButton {
-      cursor: pointer;
-      color: #38703a;
-      background-color: light gray;
+    cursor: pointer;
+    color: #38703a;
+    background-color: light gray;
   }
 `;

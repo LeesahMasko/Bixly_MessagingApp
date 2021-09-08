@@ -4,7 +4,7 @@ import { Checkbox } from "@material-ui/core";
 
 const EachMessage = ({ id, sender, title, body, sent, messagesChecked }) => {
   return (
-    <Wrapper>
+    <Wrapper key={id}>
       <Checkbox
         onChange={(event) => {
           messagesChecked(id);

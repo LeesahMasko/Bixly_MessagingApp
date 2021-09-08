@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 
 function ComposeMessageForm() {
@@ -24,7 +23,9 @@ function ComposeMessageForm() {
       },
     })
       .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .catch(function (error) {
+        // display message error on screen
+      })
 
     console.log(errors);
   };

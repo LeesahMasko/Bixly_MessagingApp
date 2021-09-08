@@ -7,23 +7,24 @@ import SentContainer from "./SentContainer";
 import ComposeContainer from "./ComposeContainer";
 
 function CurrentDisplay(props) {
-  const { displayState } = props;
+  const { displayState, token } = props;
 
   if (displayState === "inbox") {
-    return <InboxContainer />;
+    return <InboxContainer token={token} />;
   }
 
   if (displayState === "sent") {
-    return <SentContainer />;
+    return <SentContainer token={token} />;
   }
 
   if (displayState === "compose") {
-    return <ComposeContainer />;
+    return <ComposeContainer token={token} />;
   }
 }
 
-function MainContainer() {
+function MainContainer(props) {
   //Possibly a first step to check for auth token. If so display default state (inbox)
+  const { token } = props;
 
   const [displayState, setDisplayState] = useState("inbox"); //default state should be the inbox
 
@@ -46,7 +47,7 @@ function MainContainer() {
         renderInbox={renderInbox}
         renderComposeForm={renderComposeForm}
       />
-      <CurrentDisplay displayState={displayState} />
+      <CurrentDisplay token={token} displayState={displayState} />
     </Wrapper>
   );
 }

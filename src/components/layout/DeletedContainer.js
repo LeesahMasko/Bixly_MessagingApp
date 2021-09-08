@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import { emailData } from "../data/temp/EmailData";
 import EachMessage from "../eachMessage/EachMessage";
 
