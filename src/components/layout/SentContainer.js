@@ -9,6 +9,8 @@ function SentContainer(props) {
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [refresh, setRefresh] = useState(true);
 
+   const [errorMessage, setErrorMessage] = useState(null);
+
   useEffect(() => {
     if (refresh) {
       axios({
@@ -22,6 +24,7 @@ function SentContainer(props) {
         setSentData(response.data);
       })
       .catch(function (error) {
+        setErrorMessage(error.message)
 
       })
 
@@ -60,12 +63,17 @@ function SentContainer(props) {
       setRefresh(true);
     })
      .catch(function (error) {
+       setErrorMessage(error.message)
 
       })
   }
 
   return (
+
     <WrapperMessagesView>
+      <WrapperError>
+       {errorMessage && <p>There was an error: {errorMessage}</p>}
+       </WrapperError>
       <h3 className="headerText">Sent Messages</h3>{" "}
       <button onClick={deleteSelectedMessages} className="deleteButton">
         Delete Selected Messages
@@ -97,4 +105,8 @@ const WrapperMessagesView = styled.div`
     cursor: pointer;
     background-color: light gray;
   }
+`;
+
+const WrapperError = styled.div`
+background-color: red
 `;

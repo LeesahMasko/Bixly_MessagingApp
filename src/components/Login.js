@@ -4,10 +4,10 @@ import axios from "axios";
 import styled from "styled-components";
 
 const formSchema = yup.object().shape({
-  username: yup.string().min(4).required("Please enter your username :)"),
+  username: yup.string().min(1).required("Please enter your username :)"),
   password: yup
     .string()
-    .min(8)
+    .min(1)
     .required(
       "Please add an overly complicated password, that you will most assuredly forget in the next 5 seconds."
     ),
@@ -22,6 +22,8 @@ function Login(props) {
     username: "",
     password: "",
   });
+
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const [errors, setErrors] = useState({
     username: "",
@@ -70,7 +72,7 @@ function Login(props) {
         });
       })
       .catch(function (error) {
-
+        setErrorMessage(error.message)
       })
   };
 
@@ -85,6 +87,9 @@ function Login(props) {
   };
   return (
     <Wrapper>
+      <WrapperError>
+       {errorMessage && <p>There was an error: {errorMessage}</p>}
+       </WrapperError>
       <form className="form" onSubmit={formSubmit}>
         <label htmlFor="username">
           Username:
@@ -141,4 +146,8 @@ const Wrapper = styled.div`
     padding: 20px;
     border: 3px solid #9da8a8;
   }
+`;
+
+const WrapperError = styled.div`
+background-color: red
 `;

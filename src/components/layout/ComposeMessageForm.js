@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import axios from "axios";
@@ -7,14 +7,19 @@ function ComposeMessageForm(props) {
   const { token } = props;
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [errorMessage, setErrorMessage] = useState(null);
 
 
 
   const onSubmit = (data) => {
     console.log(data);
+
+    setErrorMessage(null)
 
     axios({
       method: "post",
@@ -25,8 +30,13 @@ function ComposeMessageForm(props) {
             "content-type": "application/json",
       },
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        reset()
+
+      })
+
       .catch(function (error) {
+        setErrorMessage(error.message)
 
       })
 
@@ -35,7 +45,11 @@ function ComposeMessageForm(props) {
 
   return (
     <Wrapper>
+      <WrapperError>
+       {errorMessage && <p>There was an error: {errorMessage}</p>}
+       </WrapperError>
       <WrapperComposeMessage>
+
         <form onSubmit={handleSubmit(onSubmit)}>
 
           <input required
@@ -68,6 +82,11 @@ function ComposeMessageForm(props) {
 export default ComposeMessageForm;
 
 const Wrapper = styled.div``;
+
+const WrapperError = styled.div`
+background-color: red
+`;
+
 const WrapperComposeMessage = styled.div`
 display: flex;
 flex-direction: columns;

@@ -8,6 +8,7 @@ function InboxContainer(props) {
   const [inboxData, setInboxData] = useState([]);
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [refresh, setRefresh] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     if (refresh) {
@@ -22,6 +23,7 @@ function InboxContainer(props) {
         setInboxData(response.data);
       })
       .catch(function (error){
+        setErrorMessage(error.message)
 
       })
       setRefresh(false);
@@ -43,7 +45,7 @@ function InboxContainer(props) {
   console.log(selectedMessages);
 
   function deleteSelectedMessages() {
-    //promise will wait for all deletes to finish, before refreshing
+    //Promise.all will wait for all deletes to finish, before refreshing
     Promise.all(
       selectedMessages.map((id) => {
        return axios({
@@ -60,12 +62,15 @@ function InboxContainer(props) {
       setRefresh(true);
     })
     .catch(function (error){
-
+      setErrorMessage(error.message)
       })
   }
 
   return (
     <WrapperMessagesView>
+      <WrapperError>
+       {errorMessage && <p>There was an error: {errorMessage}</p>}
+       </WrapperError>
       <h3 className="headerText">Inbox Messages</h3>{" "}
       <button onClick={deleteSelectedMessages} className="deleteButton">
         Delete Selected Messages
@@ -98,4 +103,8 @@ const WrapperMessagesView = styled.div`
     color: #38703a;
     background-color: light gray;
   }
+`;
+
+const WrapperError = styled.div`
+background-color: red
 `;
